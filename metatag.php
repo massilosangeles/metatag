@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MetaTag</title>
+    <link rel="stylesheet" href="metatag.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+  </head>
+  <body>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <legend class="col-md-6">Meta Tags Generator</legend>
+    <div class="col-md-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <span class="help-block">A META Tag is the hidden text placed in the HEAD section of your HTML page. META Tags are used by most major search engines to index websites based on their keywords and descriptions. It is very important to use META Tags as well as a good TITLE if you expect to be found in most search engines. However, META Tags are not the only thing search engines will look at when ranking sites. Some search engines will ignore META Tags completely. Most search engines will also index your body text.
+      
+      Please fill out all the information and click "Generate Meta Tags". Your META Tags will be displayed and you can then cut and paste them to your HTML source code.
+      </span><br/>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+    <form id="form_meta" class="form-horizontal" action="metatag_process.php" method="post">
+      <fieldset>
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="title">Web Site Title</label>
+          <div class="col-md-5">
+            <input id="title" name="title" placeholder="Write here your Title" class="form-control input-md" required="" type="text">
+            <span class="help-block">Up to 70 characters</span>
+          </div>
+        </div>
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="description">Description</label>
+          <div class="col-md-5">
+            <textarea id="description" name="description" placeholder="Write here your description" class="form-control textarea-md" required=""></textarea>
+            <span class="help-block">   2-3 sentences and do not use line breaks</span>
+          </div>
+        </div>
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="keywords">Keywords</label>
+          <div class="col-md-5">
+            <input id="keywords" name="keywords" placeholder="Write here your keywords" class="form-control input-md" required="" type="text">
+            <span class="help-block">Separated by commas, try to use two word phrases as well, up to 255 characters. Not sure what keywords to include? Use our powerful <a href="http://keywords.submitexpress.com/">keyword suggestion tool</a> or discover them using the Wordtracker <a href="https://www.wordtracker.com/find-the-best-keywords">keyword research tool</a>.</span>
+          </div>
+        </div>
+        <!-- Multiple Radios (inline) -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="index">Indexing</label>
+          <div class="col-md-4">
+            <label class="radio-inline" for="index-0">
+              <input name="index" id="index-0" value="1" type="radio" required="">
+              Yes
+            </label>
+            <label class="radio-inline" for="index-1">
+              <input name="index" id="index-1" value="2" type="radio" required="">
+              No
+            </label>
+            <span class="help-block">Would you like your page to be indexed by search engines?</span>
+          </div>
+        </div>
+        <!-- Multiple Radios (inline) -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="follow">Following</label>
+          <div class="col-md-4">
+            <label class="radio-inline" for="follow-0">
+              <input name="follow" id="follow-0" value="1" type="radio" required="">
+              Yes
+            </label>
+            <label class="radio-inline" for="follow-1">
+              <input name="follow" id="follow-1" value="2" type="radio" required="">
+              No
+            </label>
+            <span class="help-block">Would you like the search engines to follow links on your site for further indexing?</span>
+          </div>
+        </div>
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="name">Author</label>
+          <div class="col-md-5">
+            <input id="name" name="name" placeholder="Write here your name" class="form-control input-md" required="" type="text">
+            
+          </div>
+        </div>
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="mail">Email</label>
+          <div class="col-md-5">
+            <input id="mail" name="mail" placeholder="Write here your email" class="form-control input-md" required="" type="email">
+            <span class="help-block">This email will be used if you select any of the options below</span>
+          </div>
+        </div>
+        <!-- Multiple Radios (inline) -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="newsletter">Newsletter</label>
+          <div class="col-md-4">
+            <label class="radio-inline" for="newsletter-0">
+              <input name="newsletter" id="newsletter-0" value="1" type="radio" required="">
+              Subscribe to Submit Express newsletter
+            </label>
+          </div>
+        </div>
+        <!-- Multiple Radios (inline) -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="service">Services</label>
+          <div class="col-md-4">
+            <label class="radio-inline" for="service-0">
+              <input name="service" id="service-0" value="1" type="radio" required="">
+              Please contact me regarding <a href="http://www.submitexpress.com/services.html">Search Engine Marketing</a> or <a href="http://www.iclimber.com/">Social Media Marketing Services</a>.
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="captcha">Captcha</label>
+          <div class="col-md-4">
+            <div class="g-recaptcha" data-sitekey="6LeLTSQUAAAAAALRd7cSQkGyiWfBVmq5QehBTKf_"></div> 
+          </div>
+        </div>
+        <!-- Button -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="submit">Submit</label>
+          <div class="col-md-4">
+            <button id="submit" name="submit" class="btn btn-primary">Generate Meta Tags</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+    <div class="row" id="add">
+       <div class="col-md-3"></div>
+       <div class="form-group col-md-6">
+          <form id="form_add" action="add_form.php" class="form-horizontal" method="post">
+            <fieldset>
+              <legend>Add</legend>
+              <!-- ADD 1 -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="add1">Do you need .....</label>
+                <div class="col-md-4">
+                  <label class="radio-inline" for="add1-0">
+                    <input name="add1" id="add1-0" value="1" type="radio" required="">
+                    Yes
+                  </label>
+                  <label class="radio-inline" for="add1-0">
+                    <input name="add1" id="add1-1" value="2" type="radio" required="">
+                    No
+                  </label>
+                </div>
+              </div>
+              <!-- ADD 2-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="add2">Do you like .....</label>
+                <div class="col-md-4">
+                  <label class="radio-inline" for="add1-0">
+                    <input name="add2" id="add2-0" value="1" type="radio" required="">
+                    Yes
+                  </label>
+                  <label class="radio-inline" for="add1-0">
+                    <input name="add2" id="add2-1" value="2" type="radio" required="">
+                    No
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+          <label class="col-md-4 control-label" for="submit">Submit or Close</label>
+          <div class="col-md-4">
+            <button id="submit-add" name="submit" class="btn btn-primary">Send</button>
+            <button id="close" type=button name="close" class="btn btn-primary">Close</button>
+          </div>
+        </div>
+            </fieldset>
+          </form>
+        </div> 
+         <div class="col-md-3"></div>
+    </div>
+    <div class="row" id="resultat">
+       <div class="col-md-3"></div>
+       <div class="form-group col-md-6">
+          <label for="resultat_area">Resultat:</label>
+          <textarea class="form-control" rows="5" id="resultat_area"></textarea>
+        </div> 
+         <div class="col-md-3"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="metatag.js"></script>
+  </body>
+</html>
