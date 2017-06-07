@@ -3,11 +3,7 @@ function clean_form(area) {
   $('#keywords').val('');
   $('#description').val('');
   $('#name').val('');
-  $('input[name=index]:checked').val('');
-  $('input[name=follow]:checked').val('');
   $('#mail').val('');
-  $('input[name=newsletter]:checked').val('');
-  $('input[name=service]:checked').val('');
   if (area == 2) {
     $('#resultat_area').val('');  
   }
