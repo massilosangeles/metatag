@@ -53,7 +53,7 @@
     echo 'You are a robot!';
   }else
   {
-    if( $title == '' && $keywords == '' && $description == '' && $author == '' && $index == '' && $follow == '' && $mail == '' && $newsletter == '' && $service == ''){
+    if($title == '' || $keywords == '' || $description == '' || $author == '' || $index == '' || $follow == '' || $mail == '' || $newsletter == '' || $service == ''){
       echo "Empty input";
     }
     else {
