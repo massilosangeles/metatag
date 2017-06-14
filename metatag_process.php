@@ -44,7 +44,7 @@
   return $resultat;
   }
 
-	extract($_POST);
+  extract($_POST);
   // Verification of the captcha here ...
   $privatekey = "6LeLTSQUAAAAACX4j177jA6L6Nl5aPraDvyvzuSq";
   $response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$privatekey."&response=".$captcha_response."&remoteip=".$_SERVER['REMOTE_ADDR']);
@@ -53,26 +53,31 @@
     echo 'You are a robot!';
   }else
   {
+    if( $title == '' && $keywords == '' && $description == '' && $author == '' && $index == '' && $follow == '' && $mail == '' && $newsletter == '' && $service == ''){
+      echo "Empty input";
+    }
+    else {
     // Send information for newsletter ect.
     //TODO
     echo create_metatag($title, $description, $keywords, $author, $index, $follow); 
+    }
   }    
 
-	/*
-	require_once('recaptcha/recaptchalib.php');
-	$privatekey = "6LeLTSQUAAAAACX4j177jA6L6Nl5aPraDvyvzuSq";
-	$resp = recaptcha_check_answer ($privatekey,
-	                            $_SERVER["REMOTE_ADDR"],
-	                            $_POST["recaptcha_challenge_field"],
-	                            $_POST["recaptcha_response_field"]);
+  /*
+  require_once('recaptcha/recaptchalib.php');
+  $privatekey = "6LeLTSQUAAAAACX4j177jA6L6Nl5aPraDvyvzuSq";
+  $resp = recaptcha_check_answer ($privatekey,
+                              $_SERVER["REMOTE_ADDR"],
+                              $_POST["recaptcha_challenge_field"],
+                              $_POST["recaptcha_response_field"]);
 
-	if (!$resp->is_valid) {
-	// What happens when the CAPTCHA was entered incorrectly
-	die ("The reCAPTCHA wasn't entered correctly. Go back and try it again." .
-	     "(reCAPTCHA said: " . $resp->error . ")");
-	} else {
-	// Your code here to handle a successful verification
-		echo "ok";
-	}
-	*/
+  if (!$resp->is_valid) {
+  // What happens when the CAPTCHA was entered incorrectly
+  die ("The reCAPTCHA wasn't entered correctly. Go back and try it again." .
+       "(reCAPTCHA said: " . $resp->error . ")");
+  } else {
+  // Your code here to handle a successful verification
+    echo "ok";
+  }
+  */
 ?>
